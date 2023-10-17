@@ -1,0 +1,27 @@
+{
+    "name": "medpets-assignments/fullstack-starter",
+    "description": "Assignment for Fullstack Starter Role",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Medpets\\Assignments\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jos Koomen",
+            "email": "jos.koomen@medpets.nl"
+        }
+    ],
+    "require": {
+        "ext-json" : "*",
+        "ext-zip" : "*",
+        "php" : "^8.1",
+        "symfony/console": "*",
+        "symfony/process": "^6.3"
+    },
+    "require-dev" : {
+        "roave/security-advisories" : "dev-latest"
+    }
+}
