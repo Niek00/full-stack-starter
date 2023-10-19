@@ -33,11 +33,10 @@ class CreateProjectCommand extends Command
         $output->writeln('<fg=green>Hallo <fg=green;options=bold>'.$name.'</> 👋</>');
         $output->writeln("<fg=green>We gaan je project in elkaar zetten. Sit back and relax 🚀</>");
         $output->writeln('<comment>------------</comment>');
-//
+
         $process = new Process(['composer', 'create-project', 'laravel/laravel', 'assignment-app']);
         $process->run();
         $output->writeln($process->getOutput());
-//
 
         $output->writeln('<fg=green>We hebben een project voor je aangemaakt in de <fg=green;options=bold>assignment-app</> directory. 🎉</>');
         $output->writeln('<fg=green>Nu nog wat dingetjes toevoegen. 📦</>');
