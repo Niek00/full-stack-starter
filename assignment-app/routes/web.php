@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -18,7 +19,10 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['middleware' => 'isAdmin'], function () {
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+
+Route::group(['middleware' => 'auth','isAdmin'], function () {
     Route::get('/admin/dashboard', function () {
         return view('adminDashboard');
     });
