@@ -16,15 +16,19 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::group(['middleware' => 'auth','isAdmin'], function () {
     Route::get('/admin/dashboard', function () {
         return view('adminDashboard');
+    });
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return view('welcome');
     });
 });
 Route::post('/api/products', [ProductController::class, 'store'] );
