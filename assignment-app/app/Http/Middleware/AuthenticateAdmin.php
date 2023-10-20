@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticateAdmin
@@ -16,7 +17,7 @@ class AuthenticateAdmin
     public function handle(Request $request, Closure $next): Response
     {
         //Check if user is admin
-        if(true){
+        if(Auth::hasRole('admin')){
             return $next($request);
         } else {
             return redirect()->route('welcome');
